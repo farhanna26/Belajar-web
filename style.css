@@ -1,0 +1,181 @@
+/* Ini komentar CSS, nggak akan kebaca browser */
+
+/* Targetin seluruh badan halaman */
+body {
+    background-color: #1a1a2e; /* Warna gelap agak kebiruan */
+    color: #e0e0e0; /* Teks warna abu-abu terang, nggak putih mencolok */
+    font-family: 'Sahoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 50px;
+    line-height: 30px; /* Jarak antar baris teks biar enak dibaca */
+}
+
+p {
+    color: aquamarine;
+    letter-spacing: 0;
+}
+
+ol {
+    color: rgb(255, 127, 249);
+    letter-spacing: 0;
+    margin-bottom: 10px;
+    line-height: 40px;
+}
+
+/* Targetin judul */
+h1, h3 {
+    color: #e94560; /* Warna aksen merah muda neon */
+}
+
+/* Targetin gambar (termasuk foto andalan lo) */
+img {
+    border-radius: 15px; /* Bikin sudut gambar jadi tumpul */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Kasih efek bayangan */
+}
+
+/* Targetin Link (kita sulap jadi kelihatan kayak tombol!) */
+a {
+    display: inline-block; /* Biar bisa dikasih ukuran/margin */
+    background-color: #0f3460; /* Warna kotak background */
+    color: white; /* Warna teks */
+    padding: 10px 20px; /* Jarak dalam kotak: 10px atas/bawah, 20px kiri/kanan */
+    text-decoration: none; /* Ilangin garis bawah bawaan link */
+    border-radius: 8px; /* Sudut kotak tumpul */
+    font-weight: bold;
+}
+
+/* Efek pas link disorot kursor (Hover) */
+a:hover {
+    background-color: #e94560; /* Berubah warna pas kursor di atasnya */
+}
+
+/* Targetin Tombol Bego tadi biar mendingan dikit */
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #ff00b3;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer; /* Ubah bentuk kursor jadi tangan pas disorot */
+    transition: 0.3s;
+    box-shadow: 10px 4px 15px rgba(233, 69, 96, 0.4); /* Kasih bayangan warna neon juga */
+}
+
+button:hover {
+    color:#000000;
+    background-color: #45e953;
+    box-shadow: 0 4px 15px rgba(255, 234, 0, 0.4);
+    transform: translateY(-3px);
+}
+
+/* Kita panggil class kardus pembungkusnya pakai tanda titik (.) */
+.kartu-profil {
+    display: flex; /* Ini mantra utama Auto Layout-nya! */
+    align-items: center; /* Bikin gambar dan teks sejajar di tengah secara vertikal */
+    gap: 40px; /* Ngasih jarak antara gambar dan teks (Spacing) */
+    
+    /* Kita kasih hiasan dikit biar kelihatan kayak kartu */
+    background-color: #070974;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0, 0.3);
+}
+
+/* Kita atur jarak di dalam teksnya biar nggak dempetan sama tombol */
+.teks-profil h2 {
+    margin-top: 0;
+    color: #0066ff;
+}
+
+/* Targetin paragraf deskripsi di dalem kartu */
+.teks-profil p {
+    line-height: 1.8; /* Bikin jarak antar barisnya lebih lega */
+    margin-bottom: 25px; /* Ngasih jarak (dorong) tombol di bawahnya biar nggak dempet */
+    letter-spacing: 1px; /* Renggangin dikit antar hurufnya */
+    color: #b0b0b0; /* Bikin warnanya agak abu-abu biar beda sama judul */
+}
+
+/* Styling Logo */
+.judul {
+    color: #00a2ff;
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+/* Styling wadah menu biar nyamping */
+.nav-links {
+    display: flex;
+    gap: 30px; /* Jarak antar tulisan menu */
+    list-style: none; /* Ngilangin titik-titik (bullet) bawaan dari HTML */
+    margin: 0;
+    padding: 0;
+}
+
+/* Styling tulisan link di dalem menu */
+.nav-links a {
+    /*background-color: transparent; 
+    padding: 8px 16px; /* KITA UBAH INI: Kasih jarak dalem atas-bawah 8px, kiri-kanan 16px */
+    border-radius: 8px; /* Biar kotaknya nanti ujungnya tumpul */
+    color: #e0e0e0;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+/* Efek saat menu disorot */
+/* Efek hover kotak nyala beda-beda */
+.hover-biru:hover {
+    background-color: #00d2ff; /* Background jadi biru */
+    color: #1a1a2e; /* Teks berubah gelap biar kontras */
+}
+
+.hover-pink:hover {
+    background-color: #e94594;
+    color: #1a1a2e; /* Teks tetep putih karena background pink lumayan gelap */
+}
+
+.hover-kuning:hover {
+    background-color: #ffaa00;
+    color: #1a1a2e;
+}
+
+/* --- STYLING HERO SECTION --- */
+.hero {
+    text-align: center; /* Bikin semua teks dan tombol rata tengah */
+    padding: 80px 20px; /* Ngasih jarak atas-bawah yang super lega (80px) */
+    margin-bottom: 50px; /* Jarakin ke kartu profil di bawahnya */
+}
+
+.hero h1 {
+    font-size: 54px; /* Judul raksasa biar ngejreng */
+    color: #ffffff;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.hero p {
+    font-size: 20px;
+    color: #b0b0b0;
+    margin-bottom: 35px;
+}
+
+/* Tombol khusus di Hero Section */
+.btn-utama {
+    padding: 15px 35px;
+    font-size: 18px;
+    background-color: #e94560; /* Merah/Pink neon estetik */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s; /* Efek smooth */
+    box-shadow: 10px 4px 15px rgba(233, 69, 96, 0.4); /* Kasih bayangan warna neon juga */
+}
+
+.btn-utama:hover {
+    color: #1a1a2e;
+    background-color: #00d2ff; /* Berubah jadi biru pas disorot */
+    box-shadow: 0 4px 15px rgba(0, 210, 255, 0.4);
+    transform: translateY(-3px); /* Animasi rahasia: tombolnya seolah ngangkat ke atas dikit pas disorot! */
+}
