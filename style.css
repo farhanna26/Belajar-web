@@ -9,6 +9,30 @@ body {
     line-height: 30px; /* Jarak antar baris teks biar enak dibaca */
 }
 
+/* --- SUTRADARA ANIMASI --- */
+
+/* Animasi 1: Muncul pelan-pelan dari bawah (Slide Up & Fade In) */
+@keyframes munculDariBawah {
+    0% {
+        opacity: 0; /* Awalnya tembus pandang (nggak kelihatan) */
+        transform: translateY(40px); /* Posisinya turun 40px ke bawah */
+    }
+    100% {
+        opacity: 1; /* Akhirnya kelihatan solid 100% */
+        transform: translateY(0); /* Balik ke posisi asli */
+    }
+}
+
+/* Animasi 2: Muncul pelan-pelan (Fade In murni) */
+@keyframes munculPelan {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 p {
     color: aquamarine;
     letter-spacing: 0;
@@ -68,8 +92,18 @@ button:hover {
     transform: translateY(-3px);
 }
 
+button:active{
+    transform: translateY(0) scale(0.85); /* Tombol balik turun dan nyusut dikit (85% dari ukuran asli) */
+    box-shadow: 0 2px 5px rgba(233, 69, 96, 0.4); /* Bayangannya ngecil karena posisinya mendem */
+}
+
 /* Kita panggil class kardus pembungkusnya pakai tanda titik (.) */
 .kartu-profil {
+    /* Panggil animasi yang sama, tapi kasih jeda 0.5 detik (0.5s) sebelum mulai bergerak */
+    animation: munculDariBawah 1.5s ease-out 0.5s forwards;
+    
+    /* Trik penting: Karena ada jeda, kita set opacity awalnya 0 biar dia nunggu disembunyiin dulu sebelum animasinya jalan */
+    opacity: 0;
     display: flex; /* Ini mantra utama Auto Layout-nya! */
     align-items: center; /* Bikin gambar dan teks sejajar di tengah secara vertikal */
     gap: 40px; /* Ngasih jarak antara gambar dan teks (Spacing) */
@@ -141,6 +175,8 @@ button:hover {
 
 /* --- STYLING HERO SECTION --- */
 .hero {
+    /* Panggil animasi "munculDariBawah", durasi 1 detik, gerakannya smooth (ease-out), dan jalanin 1 kali (forwards) */
+    animation: munculDariBawah 1s ease-out forwards;
     text-align: center; /* Bikin semua teks dan tombol rata tengah */
     padding: 80px 20px; /* Ngasih jarak atas-bawah yang super lega (80px) */
     margin-bottom: 50px; /* Jarakin ke kartu profil di bawahnya */
@@ -178,4 +214,38 @@ button:hover {
     background-color: #00d2ff; /* Berubah jadi biru pas disorot */
     box-shadow: 0 4px 15px rgba(0, 210, 255, 0.4);
     transform: translateY(-3px); /* Animasi rahasia: tombolnya seolah ngangkat ke atas dikit pas disorot! */
+}
+
+/* Efek pas tombol beneran di-klik (diteken) */
+.btn-utama:active {
+    transform: translateY(0) scale(0.85); /* Tombol balik turun dan nyusut dikit (85% dari ukuran asli) */
+    box-shadow: 0 2px 5px rgba(233, 69, 96, 0.4); /* Bayangannya ngecil karena posisinya mendem */
+}
+
+/* --- JURUS RESPONSIVE (MEDIA QUERIES) --- */
+
+/* Kode di dalam kurung kurawal ini CUMA aktif kalau lebar layar 768px ke bawah (ukuran HP/Tablet) */
+@media (max-width: 768px) {
+    
+    /* 1. Benerin Navbar */
+    .navbar {
+        flex-direction: column; /* Ini KUNCINYA: ubah arah flexbox jadi numpuk ke bawah */
+        gap: 15px; /* Kasih jarak antara logo dan menu */
+    }
+
+    /* 2. Benerin Kartu Profil */
+    .kartu-profil {
+        flex-direction: column; /* Biar foto andalan lo ada di atas teks, nggak maksa di samping */
+        text-align: center; /* Teksnya diratain tengah biar estetik di HP */
+        padding: 20px;
+    }
+
+    /* 3. Kecilin Font Hero Section Biar Nggak Menyesakkan Layar */
+    .hero h1 {
+        font-size: 36px; 
+    }
+    
+    .hero p {
+        font-size: 16px;
+    }
 }
