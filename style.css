@@ -129,8 +129,17 @@ button:active{
     color: #b0b0b0; /* Bikin warnanya agak abu-abu biar beda sama judul */
 }
 
-/* Styling Logo */
-.judul {
+/* --- STYLING NAVBAR (DESKTOP) --- */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Dorong logo ke kiri, menu ke tengah, saklar ke kanan */
+    align-items: center; /* Bikin semuanya sejajar di tengah secara vertikal */
+    padding: 10px 0;
+    margin-bottom: 40px; /* Kasih jarak ke Hero Section di bawahnya */
+}
+
+/* Benerin typo nama class logo lo */
+.logo {
     color: #00a2ff;
     margin: 0;
     letter-spacing: 2px;
@@ -248,4 +257,37 @@ button:active{
     .hero p {
         font-size: 16px;
     }
+}
+
+/* --- SAKLAR TEMA --- */
+.btn-tema {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-tema:hover {
+    transform: scale(1.2) rotate(10deg); /* Biar muter dikit pas disorot */
+}
+
+/* --- BAJU LIGHT MODE --- */
+/* Kalau tag <body> dikasih class "light-mode", jalankan warna ini: */
+body.light-mode {
+    background-color: #f4f4f9; /* Background jadi putih/abu muda */
+    color: #1a1a2e; /* Teks berubah jadi gelap */
+}
+
+/* Biar teks di dalem elemen lain tetep kebaca pas terang */
+body.light-mode .hero h1, 
+body.light-mode .hero p, 
+body.light-mode .nav-links a {
+    color: #1a1a2e; 
+}
+
+body.light-mode .kartu-profil {
+    background-color: #ffffff; /* Kartu lo jadi putih bersih */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Bayangannya jadi alus */
 }

@@ -30,13 +30,15 @@
     <a href="https://google.com" target="_blank">Pergi ke Google</a>
 
 <nav class="navbar">
-        <h2 class="judul">Farhan</h2>
+        <h2 class="logo">Farhan</h2>
         
         <ul class="nav-links">
             <li><a href="#" class="hover-biru">Home</a></li>
             <li><a href="#" class="hover-pink">About</a></li>
             <li><a href="#" class="hover-kuning">Portfolio</a></li>
         </ul>
+
+        <button class="btn-tema">☀️</button>
     </nav>
 
 <div class="hero">
@@ -69,6 +71,28 @@
             alert('Welcome to My Universe! 🚀 Mode penjelajahan diaktifkan!');
         });
     </script>
-    ```
-    
+
+<script>
+        // 1. Kenalin tombol saklar dan body web kita (Ini variabel buatan kita)
+        const tombolTema = document.querySelector('.btn-tema');
+        const bodyWeb = document.body;
+
+        // 2. Pasang sensor klik di tombol
+        tombolTema.addEventListener('click', function() {
+            
+            // 3. JURUS SAKTI: classList.toggle
+            // Ini perintah bawaan JS buat ngecek: "Kalau belum ada class light-mode, tambahin! Kalau udah ada, cabut!"
+            bodyWeb.classList.toggle('light-mode');
+            
+            // 4. Ubah icon Matahari jadi Bulan
+            // Kalau body lagi pake baju light-mode, ganti text tombol jadi bulan. Kalau nggak, balikin ke matahari.
+            if (bodyWeb.classList.contains('light-mode')) {
+                tombolTema.textContent = '🌙';
+            } else {
+                tombolTema.textContent = '☀️';
+            }
+            
+        });
+    </script>
+
 </html>
